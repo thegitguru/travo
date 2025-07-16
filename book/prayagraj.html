@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Discover the Prayagraj Sangam with Travo, a 3-day spiritual journey to the holy confluence of Triveni Sangam, including Allahabad Fort and Kumbh Mela insights."
+    />
+    <meta property="og:title" content="Travo | Prayagraj Sangam" />
+    <meta
+      property="og:description"
+      content="Immerse in the sacred confluence with Travo's curated Prayagraj Sangam package."
+    />
+    <meta property="og:image" content="/images/prayagraj-og.jpg" />
+    <meta property="og:url" content="https://www.travo.com/prayagraj" />
+    <title>Travo | Prayagraj Sangam</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/_app-6tu7e993jke9dd.css">
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <h1 class="logo-text">Travo</h1>
+      </div>
+      <button
+        class="menu-toggle"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        type="button"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav-group" role="navigation" aria-label="Main navigation">
+        <a class="nav-link" href="../" aria-current="page"
+          ><i class="fas fa-home"></i> Home</a
+        >
+        <a class="nav-link" href="/about.html"
+          ><i class="fas fa-info-circle"></i> About Us</a
+        >
+        <a class="nav-link" href="/contact.html"
+          ><i class="fas fa-envelope"></i> Contact Us</a
+        >
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h2>Prayagraj Sangam</h2>
+      <p>Immerse in the holy confluence with a 3-day spiritual journey</p>
+      <a href="/book/prayagraj.html" class="cta-button" role="button">Book Now</a>
+    </section>
+
+    <section class="package-section">
+      <h2>Prayagraj Sangam Details</h2>
+      <div class="package-details">
+        <img
+          src="/assets/img/prayagraj.png"
+          alt="Triveni Sangam confluence during Prayagraj tour"
+          class="package-image"
+          loading="lazy"
+          onerror="this.src='https://placehold.co/600x400?text=Fallback+Image'"
+        />
+        <p>
+          Immerse in the holy confluence with our 3-day Prayagraj Sangam
+          package. This tour includes a visit to Triveni Sangam, the sacred
+          meeting point of three rivers, along with Allahabad Fort and insights
+          into the Kumbh Mela.
+        </p>
+        <div class="price">₹20,000</div>
+        <p><strong>Duration:</strong> 3 Days / 2 Nights</p>
+        <p>
+          <strong>Inclusions:</strong> Accommodation, guided tours,
+          transportation, and select meals.
+        </p>
+        <a href="/book/prayagraj.html" class="cta-button-book">Book Now</a>
+      </div>
+      <div class="itinerary">
+        <h3>Itinerary</h3>
+        <ul>
+          <li>
+            <strong>Day 1:</strong> Arrival in Prayagraj, check-in, and evening
+            visit to Triveni Sangam.
+          </li>
+          <li>
+            <strong>Day 2:</strong> Explore Allahabad Fort and learn about the
+            Kumbh Mela's cultural significance.
+          </li>
+          <li>
+            <strong>Day 3:</strong> Morning visit to local temples, departure
+            from Prayagraj.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <h3>Stay Connected with Travo</h3>
+      <div class="footer-links">
+        <a href="/contact.html">Contact Us</a>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Service</a>
+      </div>
+      <form class="newsletter-form" id="newsletter-form">
+        <input
+          type="email"
+          placeholder="Enter your email"
+          aria-label="Email for newsletter"
+          required
+          pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
+        />
+        <button type="submit">Subscribe</button>
+      </form>
+    </footer>
+
+    <script>
+      // DOM elements
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navGroup = document.querySelector(".nav-group");
+      const navLinks = document.querySelectorAll(".nav-link");
+      const newsletterForm = document.querySelector("#newsletter-form");
+
+      // Function to close mobile menu
+      function closeMenu() {
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.classList.remove("active");
+        navGroup.classList.remove("active");
+        document.removeEventListener("keydown", handleKeydown);
+      }
+
+      // Focus trapping for mobile menu
+      function trapFocus() {
+        const focusableElements = navGroup.querySelectorAll("a");
+        const firstFocusable = focusableElements[0];
+        const lastFocusable = focusableElements[focusableElements.length - 1];
+
+        navGroup.addEventListener("keydown", (e) => {
+          if (e.key === "Tab") {
+            if (e.shiftKey && document.activeElement === firstFocusable) {
+              e.preventDefault();
+              lastFocusable.focus();
+            } else if (
+              !e.shiftKey &&
+              document.activeElement === lastFocusable
+            ) {
+              e.preventDefault();
+              firstFocusable.focus();
+            }
+          }
+        });
+      }
+
+      // Handle Esc key to close menu
+      function handleKeydown(e) {
+        if (e.key === "Escape") {
+          closeMenu();
+          menuToggle.focus();
+        }
+      }
+
+      // Hamburger menu toggle and focus management
+      if (menuToggle && navGroup) {
+        menuToggle.addEventListener("click", () => {
+          const isExpanded =
+            menuToggle.getAttribute("aria-expanded") === "true";
+          menuToggle.setAttribute("aria-expanded", !isExpanded);
+          menuToggle.classList.toggle("active");
+          navGroup.classList.toggle("active");
+          if (!isExpanded) {
+            trapFocus();
+            document.addEventListener("keydown", handleKeydown);
+            navLinks[0].focus();
+          } else {
+            document.removeEventListener("keydown", handleKeydown);
+          }
+        });
+
+        // Close menu on nav link click
+        navLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            if (navGroup.classList.contains("active")) {
+              closeMenu();
+            }
+          });
+        });
+      }
+
+      // Newsletter form submission with simulated API call
+      if (newsletterForm) {
+        newsletterForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const email = newsletterForm.querySelector("input").value;
+          const submitButton = newsletterForm.querySelector("button");
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          const existingMessage = newsletterForm.querySelector(".form-message");
+          if (existingMessage) existingMessage.remove();
+
+          const message = document.createElement("p");
+          message.classList.add("form-message");
+          newsletterForm.appendChild(message);
+
+          if (!emailRegex.test(email)) {
+            message.textContent = "Please enter a valid email.";
+            message.style.color = "red";
+            setTimeout(() => message.remove(), 3000);
+            return;
+          }
+
+          submitButton.textContent = "Subscribing...";
+          submitButton.disabled = true;
+
+          try {
+            const response = await new Promise((resolve) =>
+              setTimeout(() => resolve({ ok: true }), 1000)
+            );
+            if (response.ok) {
+              message.textContent = "Thank you for subscribing!";
+              message.style.color = "green";
+              newsletterForm.reset();
+            } else {
+              message.textContent = "Subscription failed. Please try again.";
+              message.style.color = "red";
+            }
+            setTimeout(() => message.remove(), 3000);
+          } catch (error) {cta-button
+            message.textContent = "An error occurred. Please try again later.";
+            message.style.color = "red";
+            setTimeout(() => message.remove(), 3000);
+          } finally {
+            submitButton.textContent = "Subscribe";
+            submitButton.disabled = false;
+          }
+        });
+      }
+
+      // Handle Book Now button
+      const bookButtons = document.querySelectorAll(".cta-button,.cta-button-book");
+      bookButtons.forEach((button) => {
+        button.addEventListener("click", (e) => {
+          e.preventDefault();
+          const packageName = "Prayagraj Sangam";
+          window.location.href = `${e.target.href}?package=${encodeURIComponent(
+            packageName
+          )}`;
+        });
+      });
+    </script>
+  </body>
+</html>

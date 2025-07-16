@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Discover the Varanasi Pilgrimage with Travo, a 4-day spiritual journey including Ganges Aarti, Kashi Vishwanath Temple, and Sarnath."
+    />
+    <meta property="og:title" content="Travo | Varanasi Pilgrimage" />
+    <meta
+      property="og:description"
+      content="Experience the spiritual heart of India with Travo's curated Varanasi Pilgrimage package."
+    />
+    <meta property="og:image" content="/images/varanasi-og.jpg" />
+    <meta property="og:url" content="https://www.travo.com/varanasi" />
+    <title>Travo | Varanasi Pilgrimage</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/_app-6tu7e993jke9dd.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <h1 class="logo-text">Travo</h1>
+      </div>
+      <button
+        class="menu-toggle"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        type="button"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav-group" role="navigation" aria-label="Main navigation">
+        <a class="nav-link" href="../" aria-current="page"
+          ><i class="fas fa-home"></i> Home</a
+        >
+        <a class="nav-link" href="/about.html"
+          ><i class="fas fa-info-circle"></i> About Us</a
+        >
+        <a class="nav-link" href="/contact.html"
+          ><i class="fas fa-envelope"></i> Contact Us</a
+        >
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h2>Varanasi Pilgrimage</h2>
+      <p>Embark on a 4-day spiritual journey to the heart of India</p>
+      <a href="/book/varanasi.html" class="cta-button" role="button">Book Now</a>
+    </section>
+
+    <section class="package-section">
+      <h2>Varanasi Pilgrimage Details</h2>
+      <div class="package-details">
+        <img
+          src="/assets/img/varanasi.png"
+          alt="Sunset view of Ganges River during Varanasi Pilgrimage"
+          class="package-image"
+          loading="lazy"
+          onerror="this.src='https://placehold.co/600x400?text=Fallback+Image'"
+        />
+        <p>
+          Experience the spiritual heart of India with our 4-day Varanasi
+          Pilgrimage package. This journey includes the iconic Ganges Aarti, a
+          visit to the revered Kashi Vishwanath Temple, and an exploration of
+          Sarnath, where Buddha delivered his first sermon.
+        </p>
+        <div class="price">₹25,000</div>
+        <p><strong>Duration:</strong> 4 Days / 3 Nights</p>
+        <p>
+          <strong>Inclusions:</strong> Accommodation, guided tours,
+          transportation, and select meals.
+        </p>
+        <a href="/book/varanasi.html" class="cta-button-book">Book Now</a>
+      </div>
+      <div class="itinerary">
+        <h3>Itinerary</h3>
+        <ul>
+          <li>
+            <strong>Day 1:</strong> Arrival in Varanasi, check-in, and evening
+            Ganges Aarti at Dashashwamedh Ghat.
+          </li>
+          <li>
+            <strong>Day 2:</strong> Morning boat ride on the Ganges, visit Kashi
+            Vishwanath Temple and other sacred sites.
+          </li>
+          <li>
+            <strong>Day 3:</strong> Day trip to Sarnath, including the Dhamek
+            Stupa and Sarnath Museum.
+          </li>
+          <li>
+            <strong>Day 4:</strong> Free morning for exploration, departure from
+            Varanasi.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <h3>Stay Connected with Travo</h3>
+      <div class="footer-links">
+        <a href="/contact.html">Contact Us</a>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Service</a>
+      </div>
+      <form class="newsletter-form" id="newsletter-form">
+        <input
+          type="email"
+          placeholder="Enter your email"
+          aria-label="Email for newsletter"
+          required
+          pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
+        />
+        <button type="submit">Subscribe</button>
+      </form>
+    </footer>
+
+    <script>
+      // DOM elements
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navGroup = document.querySelector(".nav-group");
+      const navLinks = document.querySelectorAll(".nav-link");
+      const newsletterForm = document.querySelector("#newsletter-form");
+
+      // Function to close mobile menu
+      function closeMenu() {
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.classList.remove("active");
+        navGroup.classList.remove("active");
+        document.removeEventListener("keydown", handleKeydown);
+      }
+
+      // Focus trapping for mobile menu
+      function trapFocus() {
+        const focusableElements = navGroup.querySelectorAll("a");
+        const firstFocusable = focusableElements[0];
+        const lastFocusable = focusableElements[focusableElements.length - 1];
+
+        navGroup.addEventListener("keydown", (e) => {
+          if (e.key === "Tab") {
+            if (e.shiftKey && document.activeElement === firstFocusable) {
+              e.preventDefault();
+              lastFocusable.focus();
+            } else if (
+              !e.shiftKey &&
+              document.activeElement === lastFocusable
+            ) {
+              e.preventDefault();
+              firstFocusable.focus();
+            }
+          }
+        });
+      }
+
+      // Handle Esc key to close menu
+      function handleKeydown(e) {
+        if (e.key === "Escape") {
+          closeMenu();
+          menuToggle.focus();
+        }
+      }
+
+      // Hamburger menu toggle and focus management
+      if (menuToggle && navGroup) {
+        menuToggle.addEventListener("click", () => {
+          const isExpanded =
+            menuToggle.getAttribute("aria-expanded") === "true";
+          menuToggle.setAttribute("aria-expanded", !isExpanded);
+          menuToggle.classList.toggle("active");
+          navGroup.classList.toggle("active");
+          if (!isExpanded) {
+            trapFocus();
+            document.addEventListener("keydown", handleKeydown);
+            navLinks[0].focus();
+          } else {
+            document.removeEventListener("keydown", handleKeydown);
+          }
+        });
+
+        // Close menu on nav link click
+        navLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            if (navGroup.classList.contains("active")) {
+              closeMenu();
+            }
+          });
+        });
+      }
+
+      // Newsletter form submission with simulated API call
+      if (newsletterForm) {
+        newsletterForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const email = newsletterForm.querySelector("input").value;
+          const submitButton = newsletterForm.querySelector("button");
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          const existingMessage = newsletterForm.querySelector(".form-message");
+          if (existingMessage) existingMessage.remove();
+
+          const message = document.createElement("p");
+          message.classList.add("form-message");
+          newsletterForm.appendChild(message);
+
+          if (!emailRegex.test(email)) {
+            message.textContent = "Please enter a valid email.";
+            message.style.color = "red";
+            setTimeout(() => message.remove(), 3000);
+            return;
+          }
+
+          submitButton.textContent = "Subscribing...";
+          submitButton.disabled = true;
+
+          try {
+            const response = await new Promise((resolve) =>
+              setTimeout(() => resolve({ ok: true }), 1000)
+            );
+            if (response.ok) {
+              message.textContent = "Thank you for subscribing!";
+              message.style.color = "green";
+              newsletterForm.reset();
+            } else {
+              message.textContent = "Subscription failed. Please try again.";
+              message.style.color = "red";
+            }
+            setTimeout(() => message.remove(), 3000);
+          } catch (error) {
+            message.textContent = "An error occurred. Please try again later.";
+            message.style.color = "red";
+            setTimeout(() => message.remove(), 3000);
+          } finally {
+            submitButton.textContent = "Subscribe";
+            submitButton.disabled = false;
+          }
+        });
+      }
+
+      // Handle Book Now button
+      const bookButtons = document.querySelectorAll(".cta-button,.cta-button-book");
+      bookButtons.forEach((button) => {
+        button.addEventListener("click", (e) => {
+          e.preventDefault();
+          const packageName = "Varanasi Pilgrimage";
+          window.location.href = `${e.target.href}?package=${encodeURIComponent(
+            packageName
+          )}`;
+        });
+      });
+    </script>
+  </body>
+</html>

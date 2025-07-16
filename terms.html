@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Read Travo's Terms of Service to understand the rules and policies for using our website and booking travel packages."
+    />
+    <meta property="og:title" content="Travo | Terms of Service" />
+    <meta
+      property="og:description"
+      content="Learn about the terms and conditions for using Travo's services and booking spiritual travel packages."
+    />
+    <meta property="og:image" content="/images/og-image.jpg" />
+    <meta property="og:url" content="https://www.travo.com/terms.html" />
+    <title>Travo | Terms of Service</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/_app-6tu7e993jke9dd.css">
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <h1 class="logo-text">Travo</h1>
+      </div>
+      <button
+        class="menu-toggle"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        type="button"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav-group" role="navigation" aria-label="Main navigation">
+        <a class="nav-link" href="./"><i class="fas fa-home"></i> Home</a>
+        <a class="nav-link" href="/about.html"
+          ><i class="fas fa-info-circle"></i> About Us</a
+        >
+        <a class="nav-link" href="/contact.html"
+          ><i class="fas fa-envelope"></i> Contact Us</a
+        >
+      </nav>
+    </header>
+
+    <section class="terms-section">
+      <h2>Terms of Service</h2>
+      <p>Last updated: July 17, 2025</p>
+      <h3>1. Acceptance of Terms</h3>
+      <p>
+        By using Travo's website or services, you agree to these Terms of
+        Service. If you do not agree, please do not use our services.
+      </p>
+      <h3>2. Booking and Payments</h3>
+      <p>
+        All bookings are subject to availability. Payments must be made in full
+        at the time of booking. Refunds are subject to our cancellation policy.
+      </p>
+      <h3>3. User Responsibilities</h3>
+      <p>
+        You agree to provide accurate information during booking and to comply
+        with all travel regulations. Travo is not responsible for delays or
+        issues caused by third parties.
+      </p>
+      <h3>4. Limitation of Liability</h3>
+      <p>
+        Travo is not liable for any loss, injury, or damage incurred during your
+        travel, except as required by law.
+      </p>
+      <h3>5. Contact Us</h3>
+      <p>
+        For questions about these Terms, please contact us at
+        <a href="mailto:support@travo.com">support@travo.com</a>.
+      </p>
+      <p>
+        <a href="/assets/docs/terms-of-service.pdf" download
+          >Download Terms of Service (PDF)</a
+        >
+      </p>
+    </section>
+
+    <footer class="footer">
+      <h3>Stay Connected with Travo</h3>
+      <div class="footer-links">
+        <a href="/contact.html">Contact Us</a>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html" aria-current="page">Terms of Service</a>
+      </div>
+      <form class="newsletter-form" id="newsletter-form">
+        <input
+          type="email"
+          placeholder="Enter your email"
+          aria-label="Email for newsletter"
+          required
+          pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
+        />
+        <button type="submit">Subscribe</button>
+      </form>
+    </footer>
+
+    <script>
+      // DOM elements
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navGroup = document.querySelector(".nav-group");
+      const navLinks = document.querySelectorAll(".nav-link");
+      const newsletterForm = document.querySelector("#newsletter-form");
+
+      // Function to close mobile menu
+      function closeMenu() {
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.classList.remove("active");
+        navGroup.classList.remove("active");
+        document.removeEventListener("keydown", handleKeydown);
+      }
+
+      // Focus trapping for mobile menu
+      function trapFocus() {
+        const focusableElements = navGroup.querySelectorAll("a");
+        const firstFocusable = focusableElements[0];
+        const lastFocusable = focusableElements[focusableElements.length - 1];
+
+        navGroup.addEventListener("keydown", (e) => {
+          if (e.key === "Tab") {
+            if (e.shiftKey && document.activeElement === firstFocusable) {
+              e.preventDefault();
+              lastFocusable.focus();
+            } else if (
+              !e.shiftKey &&
+              document.activeElement === lastFocusable
+            ) {
+              e.preventDefault();
+              firstFocusable.focus();
+            }
+          }
+        });
+      }
+
+      // Handle Esc key to close menu
+      function handleKeydown(e) {
+        if (e.key === "Escape") {
+          closeMenu();
+          menuToggle.focus();
+        }
+      }
+
+      // Hamburger menu toggle and focus management
+      if (menuToggle && navGroup) {
+        menuToggle.addEventListener("click", () => {
+          const isExpanded =
+            menuToggle.getAttribute("aria-expanded") === "true";
+          menuToggle.setAttribute("aria-expanded", !isExpanded);
+          menuToggle.classList.toggle("active");
+          navGroup.classList.toggle("active");
+          if (!isExpanded) {
+            trapFocus();
+            document.addEventListener("keydown", handleKeydown);
+            navLinks[0].focus();
+          } else {
+            document.removeEventListener("keydown", handleKeydown);
+          }
+        });
+
+        // Close menu on nav link click
+        navLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            if (navGroup.classList.contains("active")) {
+              closeMenu();
+            }
+          });
+        });
+      }
+
+      // Newsletter form submission with simulated API call
+      if (newsletterForm) {
+        newsletterForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const email = newsletterForm.querySelector("input").value;
+          const submitButton = newsletterForm.querySelector("button");
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          const existingMessage = newsletterForm.querySelector(".form-message");
+          if (existingMessage) existingMessage.remove();
+
+          const message = document.createElement("p");
+          message.classList.add("form-message");
+          newsletterForm.appendChild(message);
+
+          if (!emailRegex.test(email)) {
+            message.textContent = "Please enter a valid email.";
+            message.style.color = "red";
+            setTimeout(() => message.remove(), 3000);
+            return;
+          }
+
+          submitButton.textContent = "Subscribing...";
+          submitButton.disabled = true;
+
+          try {
+            const response = await new Promise((resolve) =>
+              setTimeout(() => resolve({ ok: true }), 1000)
+            );
+            if (response.ok) {
+              message.textContent = "Thank you for subscribing!";
+              message.style.color = "green";
+              newsletterForm.reset();
+            } else {
+              message.textContent = "Subscription failed. Please try again.";
+              message.style.color = "red";
+            }
+            setTimeout(() => message.remove(), 3000);
+          } catch (error) {
+            message.textContent = "An error occurred. Please try again later.";
+            message.style.color = "red";
+            setTimeout(() => message.remove(), 3000);
+          } finally {
+            submitButton.textContent = "Subscribe";
+            submitButton.disabled = false;
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
