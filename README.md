@@ -1,6 +1,6 @@
 # Travo - Spiritual Travel Platform
 
-!<img src="logo.jpeg" width="300" alt="Travo Logo">
+<img src="logo.jpeg" width="200" alt="Travo Logo">
 
 **Repository**: [https://github.com/thegitguru/travo.git](https://github.com/thegitguru/travo.git)  
 **Author**: [@thegitguru](https://github.com/thegitguru)
