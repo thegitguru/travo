@@ -18,7 +18,7 @@
     <meta property="og:image" content="/images/og-image.jpg" />
     <meta property="og:url" content="https://www.travo.com" />
     <title>Travo | Book Travel Package</title>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -54,8 +54,8 @@
         <a class="nav-link" href="./" aria-current="page"
           ><i class="fas fa-home"></i> Home</a
         >
-        <a class="nav-link" href="/about.html"><i class="fas fa-info-circle"></i> About Us</a>
-        <a class="nav-link" href="/contact.html"
+        <a class="nav-link" href="./about.html"><i class="fas fa-info-circle"></i> About Us</a>
+        <a class="nav-link" href="./contact.html"
           ><i class="fas fa-envelope"></i> Contact Us</a
         >
       </nav>
@@ -92,9 +92,9 @@
     <footer class="footer">
       <h3>Stay Connected with Travo</h3>
       <div class="footer-links">
-        <a href="/contact.html">Contact Us</a>
-        <a href="/privacy.html">Privacy Policy</a>
-        <a href="/terms.html">Terms of Service</a>
+        <a href="./contact.html">Contact Us</a>
+        <a href="./privacy.html">Privacy Policy</a>
+        <a href="./terms.html">Terms of Service</a>
       </div>
       <form class="newsletter-form" id="newsletter-form">
         <input
@@ -218,7 +218,7 @@
               <h3>${pkg.title}</h3>
               <p>${pkg.description}</p>
               <div class="price">₹${pkg.price.toLocaleString("en-IN")}</div>
-              <a href="/book/${pkg.id}.html" class="cta-button">Book Now</a>
+              <a href="./book/${pkg.id}.html" class="cta-button">Book Now</a>
             </div>
           `;
           packageGrid.appendChild(card);
